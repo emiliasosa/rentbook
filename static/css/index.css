@@ -1,0 +1,267 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    height: 100vh;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    align-items: center;
+    padding: 5px 20px 5px 20px;
+    height: 50px;
+    border-bottom: 3px solid #BAABDA;
+}
+
+.ttlNav{
+    color: #8b6dcc;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.menuDerecha{
+    display: flex;
+    align-items: center;
+}
+
+.btnS{
+    color: #ac9dcc;
+    margin-left: 20px;
+    font-weight: 400;
+    border-radius: 30px;
+    border: 2px solid #BAABDA ;
+    padding: 5px 15px;
+    transition: 1s;
+}
+
+.btnS:hover{
+    border: 2px solid #d1d1d1 ;
+    color: #000000;
+}
+
+.btnP{
+    background-color: #BAABDA;
+    border-radius: 30px;
+    margin-left: 20px;
+    font-weight: 400;
+    color: #fff;
+    padding: 5px 15px;
+    transition: 1s;
+    border: 2px solid #BAABDA ;
+}
+
+.btnP:hover{
+    border: 2px solid #d1d1d1 ;
+    background-color: #d1d1d1 ;
+    color: #000000;
+}
+
+.navDiv{
+    font-family: "Font Awesome 6 Free";
+    height: 8px;
+    display: flex;
+    background-color: #FFF;
+    padding: 9px 5px 9px 5px;
+    border-radius: 30px;
+    border: 2px solid #BAABDA;
+    align-items: center;
+}
+
+.navInput{
+    height: 15px;
+	border:none;
+	background: transparent;
+	font-weight: bold;
+    color: #BAABDA;
+	padding-left: 16px;
+	background-image: url(/images/buscar.png);
+	background-size: 16px;
+	background-repeat: no-repeat;
+	width: 0px;
+	transition: 1s;
+}
+
+
+.navInput:focus {
+    padding-left: 22px;
+	outline: none;
+	width: 200px;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+    transition: 1s;
+}
+/*Main*/
+.main{
+    background-image: url(/images/4.jpg);
+    height: 93.3vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: cambioimg 6s infinite alternate;
+}
+
+@keyframes cambioimg{
+    0%{background-image: url(/images/4.jpg);}
+    40%{background-image: url(/images/4.jpg);}
+    60%{background-image: url(/images/5.jpg);}
+    100%{background-image: url(/images/5.jpg);}
+}
+
+
+.main h3{
+    opacity: 1;
+    font-size: 120px;
+    color: #fff;
+    margin: 0;
+    text-shadow: 4px 5px 7px rgba(0,0,0,0.84);
+}
+
+.lineMain{
+    height: 30px;
+    width: 1250px;
+}
+
+.btnMain{
+    display: flex;
+    justify-content: center;
+}
+
+.main button{
+    width: 500px;
+    height: 40px;
+    border-radius: 30px;
+    color: #fff;
+    background-color: rgba(161,145,194,0.7);
+    border: 2px solid rgba(120, 81, 202, 0.7);
+    font-size: x-large;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    transition: 1s;
+    box-shadow: 6px 6px 9px 0px rgba(0,0,0,0.75);
+}
+
+.main button:hover{
+    width: 450px;
+    height: 40px;
+    color: #000;
+    background-color: rgba(209,209,209,0.5);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    letter-spacing: 5px;
+}
+
+/*Log In*/
+
+.login{
+    display: flex;
+    justify-content: space-between;
+    height: 90vh;
+
+}
+
+.imgLogin{
+    justify-content: flex-start;
+}
+
+.derechaLogin{
+    margin-top: 120px;
+    margin-right: 190px;
+
+}
+
+.ttlLogin{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    color: #8b6dcc;
+    margin-bottom: 40px;
+    letter-spacing: 10px;
+}
+
+.formLogin{
+    width: 500px;
+}
+
+.formLogin input{
+    width: 450px;
+    border: 2px solid #BAABDA;
+    border-radius: 20px;
+    height: 30px;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.formLogin p{
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.btnLogin{
+    margin-top: 20px;
+    border-radius: 30px;
+    background-color: #BAABDA;
+    width: 470px;
+    border: 2px solid #BAABDA;
+    color: #fff;
+    padding: 8px;
+    font-size: 16px;
+    letter-spacing: 8px;
+    box-shadow: 2px 3px 7px 0px rgba(0,0,0,0.6);
+    transition: 1s;
+}
+
+.btnLogin:hover{
+    border: 2px solid #d1d1d1 ;
+    background-color: #d1d1d1 ;
+    color: #000000;
+}
+
+/*Sign Up*/
+
+.signUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/images/6.jpg);
+    height: 93.32vh;
+}
+
+.formSignUp{
+    width: 480px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 2px 3px 7px 0px rgba(0,0,0,0.6);
+    padding: 0px 20px 0 20px;
+    margin-top: 50px;
+}
+
+.ttlSignUp{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    color: #8b6dcc;
+    margin-bottom: 20px;
+    letter-spacing: 10px;
+}
+
+.formSignUp input{
+    width: 435px;
+    border: 2px solid #BAABDA;
+    border-radius: 20px;
+    height: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0;
+}
+
+.formSignUp button{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
