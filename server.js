@@ -1,4 +1,4 @@
-const express =require("express")
+const express = require("express")
 const {port} = require("./config")
 const path = require("path")
 
@@ -8,6 +8,7 @@ const { DateTime } = require("luxon")
 //importar rutas
 const userRouter = require("./routes/users")
 const authRouter = require("./routes/auth")
+const booksRouter = require("./routes/books")
 
 const app = express()
 
@@ -36,7 +37,7 @@ app.set("views","views")
 //usa lo que estamos haciendo
 app.use(userRouter)
 app.use(authRouter)
-
+app.use(booksRouter)
 
 
 app.listen(port, ()=>{
