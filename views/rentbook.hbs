@@ -1,0 +1,9 @@
+{{#if hasRentBook}}
+        <ul>
+            {{#each book}}
+            <li>{{this.name}} {{formatDate this.birthday}}</li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>Ningun usuario registrado</p>
+{{/if}}
