@@ -11,8 +11,13 @@ const authcontroller = new AuthController()
 
 //referencia a la funcion, sin ()
 router.get("/login", authcontroller.getLoginView)
+router.post("/login", authcontroller.logIn)
+
 router.get("/signup", authcontroller.getSignUpView)
 //donde se envia el formulario
 router.post("/signup", authcontroller.signUp)
+
+router.get("/logout", authcontroller.logOut)
+
 
 module.exports = router
