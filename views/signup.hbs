@@ -2,19 +2,30 @@
         <div class="formSignUp">
                 <h3 class="ttlSignUp">SIGN UP</h3>
                 <form action="/signup" method="POST" class="formLogin">
-                    <p>First name</p>
-                    <input type="text" name="firstName" id="" placeholder="Name...">
-                    <p>Last name</p>
-                    <input type="text" name="lastName" id="" placeholder="Name...">
+                 {{!-- value contiene los datos que el usuario ingreso anteriormente y se pasa desde el auth del controller --}}
                     <p>Username</p>
-                    <input type="text" name="username" id="" placeholder="Name...">
+                    <input type="text" name="username" id="" placeholder="Username..." value="{{user.username}}" required>
                     <p>Birthday</p>
-                    <input type="date" name="birthday" id="">
+                    <input type="date" name="birthday" id="" value="{{user.birthday}}" required>
+                    <p>Picture</p>
+                    <input type="text" name="picture" id="" placeholder="Picture..." value="{{user.picture}}" required>
                     <p>Email</p>
-                    <input type="email" name="email" id="" placeholder="Email" required>
+                    <input type="email" name="email" id="" placeholder="Email..." value="{{user.email}}" required>
                     <p>Password</p>
-                    <input type="password" name="password" id="" placeholder="Password" required><br>
+                    <input type="password" name="password" id="" placeholder="Password..." required><br>
+                    <p>Repeat password</p>
+                    <input type="password" name="repeatPassword" id="" placeholder="Repeat password..." required><br>
                     <button class="btnLogin">Sign up</button>
+                    
+                    
+                    <div class="errorMensaje">
+                        {{!-- unless es que si no hay/esta --}}
+                        {{#unless validation.success}}
+                                {{#each validation.errors}}
+                                        {{this}}
+                                {{/each}}
+                        {{/unless}}
+                     </div>
                 </form>
         </div>
 </div>
