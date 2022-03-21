@@ -34,7 +34,15 @@ class BookController{
         
     }
 
-    getBookView(){
+    async getBookView(req, res){
+        const data = await Books.readAll()
+
+        return res.render("books", {
+            books: data,
+            hasBooks: data.length > 0,})
+    }
+
+    async rentBook(){
 
     }
 
