@@ -1,14 +1,20 @@
-{{#if hasBook}}
+{{#if hasBooks}}
 <div class="allBooks">
             {{#each book}}
             <div class="bookDiv">
-                <img src="{{session.picture}}" alt="">
-                <h3>{{session.title}}</h3>
-                    
+                <img src="{{this.picture}}" alt="">
+                <div class="contenidoCard">
+                    <h3 class="ttlCard">{{this.title}}</h3>
+                    <p class="descCard">{{this.description}}</p>
+                    <p class="autorCard">{{this.author}}</p>
+                    <div class="valoracion">
+
+                    </div>
+                    <button class="btnCard">RENT BOOK</button>
+                </div>               
             </div>
-           
             {{/each}}
     {{else}}
-        <p>Ningun usuario registrado</p>
+        <p>There aren't any book.</p>
 </div>
 {{/if}}
