@@ -6,7 +6,10 @@ const bookController = new BookController()
 router.get("/newbook", bookController.getNewBookView)
 router.post("/newbook", bookController.bookUp)
 
+router.get("/books", bookController.getBookView)
+router.post("/books", bookController.bookUp)
+
 router.get("/rentbook", bookController.getBookView)
-router.post("/rentbook", bookController.returnBook)
+router.post("/rentbook", bookController.rentBook)
 
 module.exports = router
