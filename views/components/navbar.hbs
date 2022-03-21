@@ -1,0 +1,26 @@
+<nav >
+    <div class="izDiv">
+        <a href="/"><p class="ttlNav">RENTBOOK</p></a>
+        <form>
+            <div class="navDiv">
+                <input class="navInput" type="text" name="" id="" placeholder="Search...">
+            </div>
+        </form>
+    </div>
+
+    <div class="menuDerecha">
+        {{!--se pasa el session para llamar al middleware, agregando todos los detalles--}}    
+        {{#unless session.loggedIn}}    
+            <a href="/login"><p class="btnS">Log In</p></a>
+            <a href="/signup"><p class="btnP">New Account</p></a>
+        {{else}}
+            <img src="{{session.picture}}" class="imgProfile">
+            <p class="txtNav">Hi {{session.username}}!</p>
+            <a href="/notificacion"><img src="/images/notificacion.png" class="notifi"></a>
+            <a href="/rentbook"><p class="btnS">My rent books</p></a>
+            <a href="/newbook"><p class="btnP">Public book</p></a>
+            
+            <a href="/logout"><p class="logOut">Log out</p></a>
+        {{/unless}}
+    </div>
+</nav>
