@@ -1,0 +1,14 @@
+{{#if hasBook}}
+<div class="allBooks">
+            {{#each book}}
+            <div class="bookDiv">
+                <img src="{{session.picture}}" alt="">
+                <h3>{{session.title}}</h3>
+                    
+            </div>
+           
+            {{/each}}
+    {{else}}
+        <p>Ningun usuario registrado</p>
+</div>
+{{/if}}
