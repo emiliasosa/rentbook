@@ -5,13 +5,22 @@
 
         <div class="derechaLogin">
                 <h3 class="ttlLogin">LOG IN</h3>
-                <form action="" method="POST" class="formLogin">
+                <form action="/login" method="POST" class="formLogin">
                         {{!-- name es el nombre de la propiedad cuando recibamos el formulario--}}
                         <p>Email</p>
-                        <input type="email" name="correo" id="" placeholder="Email" required>
+                        <input type="email" name="email" id="" placeholder="Email" required>
                         <p>Password</p>
-                        <input type="password" name="contrasenia" id="" placeholder="Password" required><br>
+                        <input type="password" name="password" id="" placeholder="Password" required><br>
                         <button class="btnLogin">Log in</button>
+
+                        <div class="errorMensaje">
+                        {{!-- unless es que si no hay/esta --}}
+                        {{#unless validation.success}}
+                                {{#each validation.errors}}
+                                        {{this}}
+                                {{/each}}
+                        {{/unless}}
+                     </div>
                 </form>
         </div>
 </div>
