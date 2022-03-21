@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    {{!--para agregar estilos a un componente en particular--}}
+    {{!--{{#if formCSS}}
+    <link rel="stylesheet" href="/css/form.css">
+    {{/if}}--}}
+    <title>RENTBOOK</title>
+</head>
+<body>
+    {{!--para agregar un componente en particular, por ejemplo navbar, hace un partial--}}
+    {{!--{{> navbar}}--}}
+    <header>
+        {{> navbar}}
+    </header>
+    {{!--cambiar el contenido que muestra el layout, al poner el body se muestra lo que hay en otros hbs, hay que eliminar
+    el contenido de html5 y solo dejar lo que queremos que se muestre, sino se duplica el meta, link, doctype, etc,
+    por eso se vincula aca nomas el css--}}
+    {{{body}}}
+    </body>
+</html>
