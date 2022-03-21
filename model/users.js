@@ -16,7 +16,7 @@ class User{
     //se pone estatico para no intanciar en otro lado y no generar "nuevos usuarios" y tenerlo disponible sin instanciar, para que no se edite ningun elemento
     static async readAll(){
         //como se devuelven todos, va asi
-        return await query("SELECT * FROM users")
+        return await query("SELECT * FROM usersp2")
     }
 
     //guarda una instancia de usuario
