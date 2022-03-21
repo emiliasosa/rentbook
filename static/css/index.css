@@ -17,14 +17,29 @@ nav{
 }
 
 .ttlNav{
-    color: #8b6dcc;
-    font-size: 22px;
+    color: #BAABDA;
+    font-size: 33px;
     font-weight: 700;
+}
+
+.txtNav{
+    color: #BAABDA ;
+    font-size: 20px;
+    margin: 0px 10px 0px 8px;
 }
 
 .menuDerecha{
     display: flex;
     align-items: center;
+}
+
+.izDiv{
+    display: flex;
+    align-items: center;
+}
+
+.izDiv form{
+    margin-left: 40px;
 }
 
 .btnS{
@@ -78,7 +93,7 @@ nav{
     color: #BAABDA;
 	padding-left: 16px;
 	background-image: url(/images/buscar.png);
-	background-size: 16px;
+	background-size: 18px;
 	background-repeat: no-repeat;
 	width: 0px;
 	transition: 1s;
@@ -96,6 +111,31 @@ a{
     color: #ffffff;
     transition: 1s;
 }
+/*Nav logeado*/
+.notifi{
+    margin-top: 4px;
+    width: 26px;
+    margin-left: 20px;
+}
+.imgProfile{
+    border-radius: 30px;
+    width:30px; 
+    height:30px;
+    object-fit: cover;
+    margin-left: 20px;
+    border: 2px solid #BAABDA;
+}
+
+.logOut{
+    color: #ac9dcc;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.logOut:hover{
+    color: #dadada;
+}
+
 /*Main*/
 .main{
     background-image: url(/images/4.jpg);
@@ -196,11 +236,15 @@ a{
     height: 30px;
     padding-left: 15px;
     margin-bottom: 20px;
+    
 }
 
 .formLogin p{
+    margin-top: 40px;
+    margin-bottom: 10px;
     padding-left: 10px;
     font-size: 18px;
+    line-height: 0px;
 }
 
 .btnLogin{
@@ -239,10 +283,10 @@ a{
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 2px 3px 7px 0px rgba(0,0,0,0.6);
     padding: 0px 20px 0 20px;
-    margin-top: 50px;
 }
 
 .ttlSignUp{
+    margin-top: 25px;
     text-align: center;
     font-size: 30px;
     font-weight: 400;
@@ -262,6 +306,35 @@ a{
 }
 
 .formSignUp button{
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 5px;
 }
+.errorMensaje{
+    display: block;
+    color: #dd4949;
+    font-size: 20px;
+    height: 20px;
+    padding: 15px 0px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/*Books*/
+
+.books{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/images/7.jpg);
+    height: 93.32vh;
+}
+
+.ttlBook{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    color: #8b6dcc;
+    letter-spacing: 10px;
+}
+
