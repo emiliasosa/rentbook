@@ -381,6 +381,7 @@ a{
     box-shadow: 2px 3px 7px 0px rgba(0,0,0,0.6);
     display: flex;
     justify-content: space-between;
+    margin: 20px 0;
 }
 
 .imgCard{
@@ -463,6 +464,7 @@ a{
     display: flex;
     justify-content: space-around;
     padding: 30px;
+    flex-wrap: wrap;
 }
 
 .myBooks2{
@@ -498,19 +500,14 @@ a{
     object-fit: cover;
 }
 
-
-/* COMIENZO Código para ESTRELLAS */
-
-
-input[type = "radio"]{ display:none;/*position: absolute;top: -1000em;*/}
-label{ color:grey;}
-
-.clasificacion{
-    direction: rtl;
-    unicode-bidi: bidi-override;
+/*RENT BOOK*/
+.allRentBooks{
+    background-image: url(/images/10.jpg);
+    height: 86.9%;
+    width: 96.8%;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px;
 }
-
-label:hover,
-label:hover ~ label{color:rgb(144, 47, 201);}
-input[type = "radio"]:checked ~ label{color:rgb(144, 47, 201);}
-/* FINAL Código para ESTRELLAS */
