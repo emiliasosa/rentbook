@@ -1,0 +1,33 @@
+<div class="books">
+        <div class="formSignUp">
+                <h3 class="ttlBook">NEW BOOK</h3>
+                <form action="/newbook" method="POST" class="formLogin">
+                    <p>Title</p>
+                    <input type="text" name="title" id="" placeholder="Title..." value="{{book.title}}" required>
+                    <p>Description</p>
+                    <input type="text" name="description" id="" placeholder="Description..." value="{{book.description}}" required>
+                    <p>Author</p>
+                    <input type="text" name="author" id="" placeholder="Author..." value="{{book.author}}" required>
+                    <p>Picture</p>
+                    <input type="text" name="picture" id="" placeholder="Picture..." value="{{book.picture}}" required>
+                    <p>Publication date</p>
+                    <input type="date" name="publication" id="" value="{{book.publication}}" required>
+                    <p>Category</p>
+                    <input type="text" name="category" id="" placeholder="Category..." value="{{book.category}}" required>
+                    <p>Stock</p>
+                    <input type="number" name="stock" placeholder="Stock..." id="" value="{{book.stock}}" required>
+                    <p>Language</p>
+                    <input type="text" name="language" id="" placeholder="Language..." value="{{book.language}}" required>
+                    <button class="btnLogin">Register</button>
+                    
+                    <div class="errorMensaje">
+                        {{!-- unless es que si no hay/esta --}}
+                        {{#unless validation.success}}
+                            {{#each validation.errors}}
+                                {{this}}
+                            {{/each}}
+                        {{/unless}}
+                    </div>
+                </form>
+        </div>
+</div>
