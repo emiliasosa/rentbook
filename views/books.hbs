@@ -2,19 +2,39 @@
 <div class="allBooks">
             {{#each books}}
             <div class="bookDiv">
-                <img src="{{this.picture}}" alt="">
+                <div class="imgCard">
+                    <img src="{{this.picture}}" alt="">
+                </div>
                 <div class="contenidoCard">
                     <h3 class="ttlCard">{{this.title}}</h3>
-                    <p class="descCard">{{this.description}}</p>
-                    <p class="autorCard">{{this.author}}</p>
                     <div class="valoracion">
-
+                        <img src="/images/estrella.png" alt="">
+                        <img src="/images/estrella.png" alt="">
+                        <img src="/images/estrella.png" alt="">
+                        <img src="/images/estrella.png" alt="">
+                        <img src="/images/estrella.png" alt="">
                     </div>
-                    <button class="btnCard">RENT BOOK</button>
-                </div>               
+                    <p class="descCard">{{this.description}}</p>
+                    <p class="pCard">Author:<b> {{this.author}}</b></p>
+                    <p class="pCard">Language:<b> {{this.language}}</b></p>
+                    <p class="pCard">The owned of this book is {{this.author}}</p>
+                    <p class="pCard">Stock: {{this.stock}}</p>
+                    {{#if ../session.loggedIn}}
+                        <div class="valBtn">
+                            <a href="/rentbook/{{this.idBooks}}" class="btnCard">RENT BOOK</a>
+                        </div>
+                    {{else}}
+                        <div class="valBtn">
+                            <a href="/login" class="btnCard" >LOGGED IN FOR RENT</a>
+                        </div>
+                    {{/if}}
+                </div>              
             </div>
             {{/each}}
     {{else}}
-        <p>There aren't any book.</p>
+    <div class="allBooks">
+        <p class="nohay">There aren't any book.</p>
+    </div>
 </div>
 {{/if}}
+
