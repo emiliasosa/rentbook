@@ -136,6 +136,16 @@ a{
     color: #dadada;
 }
 
+.booksTt{
+    color: #ac9dcc;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.booksTt:hover{
+    color: #dadada;
+}
+
 /*Main*/
 .main{
     background-image: url(/images/4.jpg);
@@ -174,7 +184,7 @@ a{
     justify-content: center;
 }
 
-.main button{
+.btnMain button{
     width: 500px;
     height: 40px;
     border-radius: 30px;
@@ -188,7 +198,7 @@ a{
     box-shadow: 6px 6px 9px 0px rgba(0,0,0,0.75);
 }
 
-.main button:hover{
+.btnMain button:hover{
     width: 450px;
     height: 40px;
     color: #000;
@@ -303,6 +313,7 @@ a{
     padding-left: 15px;
     padding-right: 15px;
     margin: 0;
+    box-shadow:inset 2px 2px 4px rgba(120, 120, 120, .4), inset -3px -3px 3px rgba(255,255,255,.4);
 }
 
 .formSignUp button{
@@ -319,7 +330,7 @@ a{
     font-weight: 600;
 }
 
-/*Books*/
+/*New Books*/
 
 .books{
     display: flex;
@@ -338,3 +349,151 @@ a{
     letter-spacing: 10px;
 }
 
+/*Books*/
+
+.allBooks{
+    background-image: url(/images/8.jpg);
+    height: 86.9%;
+    width: 96.8%;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.nohay{
+    text-shadow: 4px 5px 7px rgba(0,0,0,0.84);
+    font-size: 100px;
+    margin-top: 280px;
+    margin-bottom: 40px;
+    color: #ffffff;
+    align-items: center;
+    text-align: center;
+}
+
+.bookDiv{
+    position: relative;
+    width: 550px;
+    height: 380px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 3px 7px 0px rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgCard{
+    border-radius: 10px;
+    width: 250px;
+    height: 380px;
+    display: flex;
+}
+
+
+.imgCard img{
+    border-radius: 10px 0 0 10px;
+    width: 250px;
+    object-fit: cover;
+}
+
+.contenidoCard{
+    padding-right: 15px;
+    padding-left: 10px;
+    text-align: right;
+}
+.descCard{
+    padding-bottom: 15px;
+}
+
+.pCard{
+    line-height: 0.5;
+}
+
+.ttlCard{
+    font-size: 25px;
+    color: #8b6ec9;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.valBtn{
+    position: absolute;
+    bottom:0px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 30px;
+    padding: 5px;
+}
+
+.btnCard{
+    text-align: center;
+    height: 23px;
+    width: 250px;
+    background-color: rgba(161,145,194,1);
+    border: 2px solid rgba(161,145,194,1);
+    font-size: 18px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+    transition: 1s;
+}
+
+.btnCard:hover{
+    background-color: rgb(231, 231, 231);
+    border: 2px solid rgb(231, 231, 231);
+    font-weight: 700;
+    color: #8b6dcc;
+}
+
+.valoracion img{
+    height: 22px;
+}
+
+/*My Books*/
+
+.myBooks{
+    background-image: url(/images/9.jpg);
+    height: 86.9%;
+    width: 96.8%;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+.myBooks2{
+    background-image: url(/images/9.jpg);
+    height: 86.9%;
+    width: 96.8%;
+    padding: 30px;
+}
+
+.myBookDiv{
+    position: relative;
+    width: 550px;
+    height: 350px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 3px 7px 0px rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.imgCardBook{
+    border-radius: 10px;
+    width: 250px;
+    height: 350px;
+    display: flex;
+}
+
+
+.imgCardBook img{
+    border-radius: 10px 0 0 10px;
+    width: 250px;
+    object-fit: cover;
+}
