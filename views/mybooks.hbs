@@ -1,0 +1,36 @@
+{{#if hasMyBooks}}
+<div class="myBooks">
+            {{#each myBooks}}
+            <div class="bookDiv">
+                <div class="imgCard">
+                    <img src="{{this.picture}}" alt="">
+                </div>
+                <div class="contenidoCard">
+                    <h3 class="ttlCard">{{this.title}}</h3>
+                    <div class="valoracion">
+                        <img src="/images/estrella.png" alt="">
+                        <img src="/images/estrella.png" alt="">
+                        <img src="/images/estrella.png" alt="">
+                        <img src="/images/estrella.png" alt="">
+                        <img src="/images/estrella.png" alt="">
+                    </div>
+                    <p class="descCard">{{this.description}}</p>
+                    <p class="pCard">Author:<b> {{this.author}}</b></p>
+                    <p class="pCard">Language:<b> {{this.language}}</b></p>
+                    <p class="pCard">The owned of this book is {{this.author}}</p>
+                    <p class="pCard">Stock: {{this.stock}}</p>
+                    <div class="valBtn">
+                        <button class="btnCard">DELETE BOOK</button>
+                    </div>
+                </div>              
+            </div>
+            {{/each}}
+    {{else}}
+    <div class="myBooks2">
+        <p class="nohay">You don't publish any book.</p>
+        <div class="btnMain">
+                <a href="/newbook"><button>PUBLISH BOOK</button></a>
+        </div>
+    </div>
+</div>
+{{/if}}
