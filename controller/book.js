@@ -2,13 +2,6 @@ const { redirect } = require("express/lib/response")
 const Books = require("../model/book")
 
 class BookController{
-    async score(req, res){
-        const score = req.query.score
-        const idBook = req.query.idBook
-        let results = await Books.puntuar(idBook, score)
-        console.log(results)
-    }
-
     //ver formulario para crear libros, en rutas es get
     getNewBookView(req, res){
         return res.render("newbook")
@@ -21,7 +14,6 @@ class BookController{
         //generar un nuevo libro, toma lo que saca del body para mandarlo al modelo de libros
         const newBook = new Books(req.body.title, req.body.description, req.body.author, req.body.picture, req.body.publication, req.body.category, req.body.stock, req.body.language )
         //validar el libro
-        console.log(newBook)
         const validation = newBook.validate()
 
         //si la validacion fue exitosa, enviar al home
@@ -29,6 +21,7 @@ class BookController{
             const bookSaved = await newBook.save()
             //preguntamos si la validacion fue exitosa
             if(bookSaved.success){
+                await Books.publishMyBooks(bookSaved.id, req.session.idUser)
                 return res.redirect("/")
             }else{
                 validation.errors = [bookSaved.error]
@@ -56,6 +49,13 @@ class BookController{
             hasBooks: data.length > 0})
     }
 
+    async getRentBookView(req, res){
+        let data = await Books.readRentedBook(req.session.idUser)
+        return res.render("rentbook", {
+            rentbook: data,
+            hasRentBooks: data.length > 0})
+    }
+
     async rentBook(req,res){
          //pido por parametro el id del libro
          const idBook = req.params.idBook
@@ -65,20 +65,38 @@ class BookController{
          res.redirect("/rentbook")
     }
 
-    returnBook(){
-        
+    async returnBooks(req, res){
+        //pido por parametro el id del libro
+        const idBook = req.params.idBook
+        //envio los id al metodo mybook
+        await Books.returnRentBook(idBook)
+        //redirijo a mis libros
+        res.redirect("/rentbook")
     }
 
     async getMyBookView(req, res){
-        return res.render("mybooks")
+        let data = await Books.readMyBook(req.session.idUser)
+        
+        return res.render("mybooks", {
+            mybook: data,
+            hasMyBooks: data.length > 0})
     }
 
-    async addMyBook(req,res){
-       
+    async editingMyBook(req,res){
+        return res.redirect("editbook")
     }
 
-    async deleteMyBook(){
+    async getMyEditView(req,res){
 
+    }
+
+    async deleteMyBook(req, res){
+        //pido por parametro el id del libro
+        const idBook = req.params.idBook
+        //envio los id al metodo mybook
+        await Books.delete(idBook)
+        //redirijo a mis libros
+        res.redirect("/mybooks")
     }
 }
 
