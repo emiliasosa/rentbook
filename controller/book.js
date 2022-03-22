@@ -35,10 +35,12 @@ class BookController{
     }
 
     async getBookView(req, res){
-        var search = req.query.search
-        var data;
+        let search = req.query.search
+        let data;
         if (search){
             data = await Books.search(search)
+            //ordernar segun ranking de mayor a menos
+            //data[9].sort((a,b) => {if(a < b){return -1}})
         } else {
             data = await Books.readAll()
         }
@@ -47,12 +49,29 @@ class BookController{
             hasBooks: data.length > 0})
     }
 
-    async rentBook(){
-
+    async rentBook(req,res){
+         //pido por parametro el id del libro
+         const idBook = req.params.idBook
+         //envio los id al metodo mybook
+         await Books.rentBooks(idBook, req.session.idUser)
+         //redirijo a mis libros
+         res.redirect("/rentbook")
     }
 
     returnBook(){
         
+    }
+
+    async getMyBookView(req, res){
+        return res.render("mybooks")
+    }
+
+    async addMyBook(req,res){
+       
+    }
+
+    async deleteMyBook(){
+
     }
 }
 
