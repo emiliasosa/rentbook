@@ -497,3 +497,20 @@ a{
     width: 250px;
     object-fit: cover;
 }
+
+
+/* COMIENZO Código para ESTRELLAS */
+
+
+input[type = "radio"]{ display:none;/*position: absolute;top: -1000em;*/}
+label{ color:grey;}
+
+.clasificacion{
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label{color:rgb(144, 47, 201);}
+input[type = "radio"]:checked ~ label{color:rgb(144, 47, 201);}
+/* FINAL Código para ESTRELLAS */

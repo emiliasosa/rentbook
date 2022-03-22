@@ -11,6 +11,16 @@ class Books{
         this.category = category
         this.stock = stock
         this.language = language
+        this.totalScore = 0
+        this.score = 0
+        this.votes = 0
+    }
+
+    static async puntuar(idBook, score){
+        console.log(this.totalScore)
+        console.log(score)
+        console.log(idBook)
+        return await query("UPDATE books SET totalScore=? WHERE id=?", [score, idBook])
     }
 
     static async search(searchParam){
@@ -48,7 +58,10 @@ class Books{
             publication: this.publication,
             category: this.category,
             stock: this.stock,
-            language: this.language 
+            language: this.language,
+            totalScore: this.totalScore,
+            score: this.score,
+            votes: this.votes    
         })
         //cuando se guarda devuelve el id, se toma el id y se lo asigna al usuario, cuando se crea el usuario no sabemos el id, aca lo conocemos
         this.idBook = newBook.id

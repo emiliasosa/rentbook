@@ -16,4 +16,6 @@ router.get("/mybooks", bookController.getMyBookView)
 router.post("/mybooks", bookController.addMyBook)
 router.post("/mybooks", bookController.deleteMyBook)
 
+router.get("/score", bookController.score)
+
 module.exports = router

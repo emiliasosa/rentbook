@@ -2,6 +2,13 @@ const { redirect } = require("express/lib/response")
 const Books = require("../model/book")
 
 class BookController{
+    async score(req, res){
+        const score = req.query.score
+        const idBook = req.query.idBook
+        let results = await Books.puntuar(idBook, score)
+        console.log(results)
+    }
+
     //ver formulario para crear libros, en rutas es get
     getNewBookView(req, res){
         return res.render("newbook")
