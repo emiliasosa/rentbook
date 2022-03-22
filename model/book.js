@@ -17,6 +17,18 @@ class Books{
         return await query(`SELECT * FROM books WHERE title LIKE '${searchParam}%' OR author LIKE '${searchParam}%' OR category LIKE '${searchParam}%'`) //, [searchParam, searchParam])
     }
 
+    static async rentBooks(idBook, idRentador){
+        return await query("INSERT INTO mybook(idLibro, idRentador) VALUES(?,?)",[idBook, idRentador])
+    }
+
+    static async getRentedBook(idUser){
+        return await query("SELECT username FROM mybook JOIN usersp2 ON usersp2.id=mybook.idBook WHERE idRentador = ?", [idUser])
+    }
+
+    /*static async myBook(own, idBook){
+        return await query("INSERT INTO mybook(idUser, idLibro) VALUES(?,?)",[own, idBook])
+    }*/
+
     //se pone estatico para no intanciar en otro lado y no generar "nuevos usuarios" y tenerlo disponible sin instanciar, para que no se edite ningun elemento
     static async readAll(){
         //como se devuelven todos, va asi
@@ -68,6 +80,7 @@ class Books{
         //se devuelve si es exitoso o no
         return result
     }
+
     
 }
 
