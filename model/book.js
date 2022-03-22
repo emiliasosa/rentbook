@@ -11,38 +11,44 @@ class Books{
         this.category = category
         this.stock = stock
         this.language = language
-        this.totalScore = 0
-        this.score = 0
-        this.votes = 0
-    }
-
-    static async puntuar(idBook, score){
-        console.log(this.totalScore)
-        console.log(score)
-        console.log(idBook)
-        return await query("UPDATE books SET totalScore=? WHERE id=?", [score, idBook])
     }
 
     static async search(searchParam){
-        return await query(`SELECT * FROM books WHERE title LIKE '${searchParam}%' OR author LIKE '${searchParam}%' OR category LIKE '${searchParam}%'`) //, [searchParam, searchParam])
+        return await query(`SELECT * FROM books WHERE title LIKE '${searchParam}%' OR author LIKE '${searchParam}%' OR category LIKE '${searchParam}%' ORDER BY totalScore DESC`) //, [searchParam, searchParam])
     }
 
     static async rentBooks(idBook, idRentador){
-        return await query("INSERT INTO mybook(idLibro, idRentador) VALUES(?,?)",[idBook, idRentador])
+        return await query("INSERT INTO rentbook(idLibro, idRentador) VALUES(?,?)",[idBook, idRentador])
+    }
+
+    static async publishMyBooks(idBook, idRentador){
+        return await query("INSERT INTO mybook(idMyBook, idMe) VALUES(?,?)",[idBook, idRentador])
     }
 
     static async getRentedBook(idUser){
-        return await query("SELECT username FROM mybook JOIN usersp2 ON usersp2.id=mybook.idBook WHERE idRentador = ?", [idUser])
+        //quien lo rento
+        return await query("SELECT username FROM rentbook JOIN usersp2 ON usersp2.id=rentbook.idRentador WHERE idLibro = ?", [idUser])
     }
 
-    /*static async myBook(own, idBook){
-        return await query("INSERT INTO mybook(idUser, idLibro) VALUES(?,?)",[own, idBook])
-    }*/
+    static async getMyName(idUser){
+        //quien lo rento
+        return await query("SELECT username FROM mybook JOIN usersp2 ON usersp2.id=mybook.idMe WHERE idLibro = ?", [idUser])
+    }
 
     //se pone estatico para no intanciar en otro lado y no generar "nuevos usuarios" y tenerlo disponible sin instanciar, para que no se edite ningun elemento
     static async readAll(){
         //como se devuelven todos, va asi
         return await query("SELECT * FROM books")
+    }
+
+    static async readRentedBook(idUser){
+        //se ve lo que uno rento
+        return await query("SELECT * FROM books JOIN rentbook ON books.idBooks=rentbook.idLibro WHERE rentbook.idRentador = ?", [idUser])
+    }
+
+    static async readMyBook(idUser){
+        //se ve lo que uno rento
+        return await query("SELECT * FROM books JOIN mybook ON books.idBooks=mybook.idMyBook WHERE mybook.idMe = ?", [idUser])
     }
 
     //guarda una instancia de usuario
@@ -58,10 +64,7 @@ class Books{
             publication: this.publication,
             category: this.category,
             stock: this.stock,
-            language: this.language,
-            totalScore: this.totalScore,
-            score: this.score,
-            votes: this.votes    
+            language: this.language 
         })
         //cuando se guarda devuelve el id, se toma el id y se lo asigna al usuario, cuando se crea el usuario no sabemos el id, aca lo conocemos
         this.idBook = newBook.id
@@ -70,14 +73,18 @@ class Books{
     }
 
     //actualizar el usuario con las nuevas propiedades
-    async update(newbook){
+    static async update(newbook){
         //this hace referencia a todo lo que tiene el objeto, se actualiza en la misma clase
-        const id = await query("UPDATE books SET ? WHERE idBooks ?", [this, this.idBook])
+        const id = await query("UPDATE books SET ? WHERE idBooks ?", [this, idBook])
 
     }
 
-    async delete(){
-        await query("DELETE FROM books WHERE idBooks = ?", [this.idBook])
+    static async returnRentBook(id){
+        await query("DELETE rentbook FROM rentbook JOIN books ON books.idBooks=rentbook.idLibro WHERE rentbook.idLibro = ?", [id])
+    }
+
+    static async delete(idBook){
+        await query("DELETE FROM books WHERE idBooks = ?", [idBook])
     }
 
     validate(){
