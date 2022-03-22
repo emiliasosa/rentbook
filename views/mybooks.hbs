@@ -1,6 +1,6 @@
 {{#if hasMyBooks}}
 <div class="myBooks">
-            {{#each myBooks}}
+            {{#each mybook}}
             <div class="bookDiv">
                 <div class="imgCard">
                     <img src="{{this.picture}}" alt="">
@@ -20,7 +20,8 @@
                     <p class="pCard">The owned of this book is {{this.author}}</p>
                     <p class="pCard">Stock: {{this.stock}}</p>
                     <div class="valBtn">
-                        <button class="btnCard">DELETE BOOK</button>
+                        {{!--<a href="/editbook/{{this.idBooks}}" class="btnCard">EDIT BOOK</a>--}}
+                        <a href="/mybook/{{this.idBooks}}" class="btnCard">DELETE BOOK</a>
                     </div>
                 </div>              
             </div>
