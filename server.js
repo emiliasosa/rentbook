@@ -11,6 +11,7 @@ const authRouter = require("./routes/auth")
 const bookRouter = require("./routes/book")
 const session = require("express-session")
 const addSessionToTemplate = require("./middleware/addSessionToTemplate")
+const { Console } = require("console")
 
 const app = express()
 
