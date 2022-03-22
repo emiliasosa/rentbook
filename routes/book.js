@@ -9,13 +9,14 @@ router.post("/newbook", bookController.bookUp)
 router.get("/books", bookController.getBookView)
 router.post("/books", bookController.bookUp)
 
-router.get("/rentbook", bookController.getBookView)
-router.get("/rentbook/:idBook", bookController.rentBook)
+router.get("/rentbook", bookController.getRentBookView)
+router.get("/book/:idBook", bookController.rentBook)
+router.get("/rentbook/:idBook", bookController.returnBooks)
 
 router.get("/mybooks", bookController.getMyBookView)
-router.post("/mybooks", bookController.addMyBook)
-router.post("/mybooks", bookController.deleteMyBook)
+router.get("/mybooks/:idBook", bookController.deleteMyBook)
 
-router.get("/score", bookController.score)
+//router.get("/editbook", bookController.getMyEditView)
+//router.get("/editbook/:idBook", bookController.editingMyBook)
 
 module.exports = router
