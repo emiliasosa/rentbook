@@ -7,40 +7,25 @@
                 </div>
                 <div class="contenidoCard">
                     <h3 class="ttlCard">{{this.title}}</h3>
-                    {{!-- <div class="valoracion">
+                    <div class="valoracion">
                         <img src="/images/estrella.png" alt="">
                         <img src="/images/estrella.png" alt="">
                         <img src="/images/estrella.png" alt="">
                         <img src="/images/estrella.png" alt="">
                         <img src="/images/estrella.png" alt="">
-                    </div> --}}
-                    <div id="puntuacion">
-                        <form action="" method="post">
-                            <p>estrellas: 0</p>
-                            <p class="clasificacion">
-                                <input id="radio1" onclick="puntuar({{this.id}}, 5)" type="radio" name="estrellas" value="5"><label for="radio1">★</label>
-                                <input id="radio2" onclick="puntuar({{this.id}}, 4)" type="radio" name="estrellas" value="4"><label for="radio2">★</label>
-                                <input id="radio3" onclick="puntuar({{this.id}}, 3)" type="radio" name="estrellas" value="3"><label for="radio3">★</label>
-                                <input id="radio4" onclick="puntuar({{this.id}}, 2)" type="radio" name="estrellas" value="2"><label for="radio4">★</label>
-                                <input id="radio5" onclick="puntuar({{this.id}}, 1)" type="radio" name="estrellas" value="1" checked="checked"><label for="radio5">★</label>
-                            </p>
-                            {{!-- <p><input type="submit" value="submit" name="submit"></p> --}}
-                        </form>
                     </div>
-
-
                     <p class="descCard">{{this.description}}</p>
                     <p class="pCard">Author:<b> {{this.author}}</b></p>
                     <p class="pCard">Language:<b> {{this.language}}</b></p>
-                    <p class="pCard">The owned of this book is {{this.author}}</p>
+                    <p class="pCard">The owned of this book is {{this.username}}</p>
                     <p class="pCard">Stock: {{this.stock}}</p>
                     {{#if ../session.loggedIn}}
                         <div class="valBtn">
-                            <a href="/rentbook/{{this.idBooks}}" class="btnCard">RENT BOOK</a>
+                            <a href="/book/{{this.idBooks}}" class="btnCard">RENT BOOK</a>
                         </div>
                     {{else}}
                         <div class="valBtn">
-                            <a href="/login" class="btnCard" >LOGGED IN FOR RENT</a>
+                            <a href="/login" class="btnCard">LOGGED IN FOR RENT</a>
                         </div>
                     {{/if}}
                 </div>              
@@ -53,9 +38,3 @@
 </div>
 {{/if}}
 
-<script>
-    function puntuar(idBook, score){
-        console.log(idBook)
-        fetch(`/score?idBook=${idBook}&score=${score}`)
-    }
-</script>
